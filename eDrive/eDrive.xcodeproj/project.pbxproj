@@ -1,0 +1,331 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46F708421DE78B7C000819DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F708411DE78B7C000819DE /* AppDelegate.swift */; };
+		46F708441DE78B7C000819DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F708431DE78B7C000819DE /* ViewController.swift */; };
+		46F708471DE78B7C000819DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F708451DE78B7C000819DE /* Main.storyboard */; };
+		46F7084A1DE78B7C000819DE /* eDrive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 46F708481DE78B7C000819DE /* eDrive.xcdatamodeld */; };
+		46F7084C1DE78B7C000819DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F7084B1DE78B7C000819DE /* Assets.xcassets */; };
+		46F7084F1DE78B7C000819DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F7084D1DE78B7C000819DE /* LaunchScreen.storyboard */; };
+		46F708571DE78C94000819DE /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F708561DE78C94000819DE /* ListTableViewController.swift */; };
+		46F708591DE78C9C000819DE /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F708581DE78C9C000819DE /* ListTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		46F7083E1DE78B7C000819DE /* eDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46F708411DE78B7C000819DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		46F708431DE78B7C000819DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		46F708461DE78B7C000819DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		46F708491DE78B7C000819DE /* eDrive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eDrive.xcdatamodel; sourceTree = "<group>"; };
+		46F7084B1DE78B7C000819DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		46F7084E1DE78B7C000819DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		46F708501DE78B7C000819DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46F708561DE78C94000819DE /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		46F708581DE78C9C000819DE /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46F7083B1DE78B7C000819DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46F708351DE78B7C000819DE = {
+			isa = PBXGroup;
+			children = (
+				46F708401DE78B7C000819DE /* eDrive */,
+				46F7083F1DE78B7C000819DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46F7083F1DE78B7C000819DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46F7083E1DE78B7C000819DE /* eDrive.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		46F708401DE78B7C000819DE /* eDrive */ = {
+			isa = PBXGroup;
+			children = (
+				46F708411DE78B7C000819DE /* AppDelegate.swift */,
+				46F708431DE78B7C000819DE /* ViewController.swift */,
+				46F708451DE78B7C000819DE /* Main.storyboard */,
+				46F7084B1DE78B7C000819DE /* Assets.xcassets */,
+				46F7084D1DE78B7C000819DE /* LaunchScreen.storyboard */,
+				46F708501DE78B7C000819DE /* Info.plist */,
+				46F708581DE78C9C000819DE /* ListTableViewCell.swift */,
+				46F708561DE78C94000819DE /* ListTableViewController.swift */,
+				46F708481DE78B7C000819DE /* eDrive.xcdatamodeld */,
+			);
+			path = eDrive;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46F7083D1DE78B7C000819DE /* eDrive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46F708531DE78B7C000819DE /* Build configuration list for PBXNativeTarget "eDrive" */;
+			buildPhases = (
+				46F7083A1DE78B7C000819DE /* Sources */,
+				46F7083B1DE78B7C000819DE /* Frameworks */,
+				46F7083C1DE78B7C000819DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = eDrive;
+			productName = eDrive;
+			productReference = 46F7083E1DE78B7C000819DE /* eDrive.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46F708361DE78B7C000819DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Kata;
+				TargetAttributes = {
+					46F7083D1DE78B7C000819DE = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 46F708391DE78B7C000819DE /* Build configuration list for PBXProject "eDrive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 46F708351DE78B7C000819DE;
+			productRefGroup = 46F7083F1DE78B7C000819DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46F7083D1DE78B7C000819DE /* eDrive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46F7083C1DE78B7C000819DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46F7084F1DE78B7C000819DE /* LaunchScreen.storyboard in Resources */,
+				46F7084C1DE78B7C000819DE /* Assets.xcassets in Resources */,
+				46F708471DE78B7C000819DE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46F7083A1DE78B7C000819DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46F708441DE78B7C000819DE /* ViewController.swift in Sources */,
+				46F708421DE78B7C000819DE /* AppDelegate.swift in Sources */,
+				46F7084A1DE78B7C000819DE /* eDrive.xcdatamodeld in Sources */,
+				46F708571DE78C94000819DE /* ListTableViewController.swift in Sources */,
+				46F708591DE78C9C000819DE /* ListTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		46F708451DE78B7C000819DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46F708461DE78B7C000819DE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		46F7084D1DE78B7C000819DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46F7084E1DE78B7C000819DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		46F708511DE78B7C000819DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		46F708521DE78B7C000819DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46F708541DE78B7C000819DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = eDrive/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.eDrive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		46F708551DE78B7C000819DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = eDrive/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.eDrive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46F708391DE78B7C000819DE /* Build configuration list for PBXProject "eDrive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46F708511DE78B7C000819DE /* Debug */,
+				46F708521DE78B7C000819DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46F708531DE78B7C000819DE /* Build configuration list for PBXNativeTarget "eDrive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46F708541DE78B7C000819DE /* Debug */,
+				46F708551DE78B7C000819DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		46F708481DE78B7C000819DE /* eDrive.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				46F708491DE78B7C000819DE /* eDrive.xcdatamodel */,
+			);
+			currentVersion = 46F708491DE78B7C000819DE /* eDrive.xcdatamodel */;
+			path = eDrive.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 46F708361DE78B7C000819DE /* Project object */;
+}
