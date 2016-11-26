@@ -10,7 +10,10 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var s: UILabel!
+ 
+    @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var longName: UILabel!
+    @IBOutlet weak var latName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

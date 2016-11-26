@@ -9,15 +9,65 @@
 import UIKit
 import CoreData
 
+
+extension ListTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .update:
+              let cell = tableView.cellForRow(at: indexPath!)! as! ListTableViewCell
+              configure(cell: cell, at: indexPath!)
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        }
+    }
+}
+
+
 class ListTableViewController: UITableViewController {
 
-    var places = [Places]()
+    var fetchedResultsController: NSFetchedResultsController<Places>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchNotebooks()
-
+       // fetchNotebooks()
+        let managedObjectContext = AppDelegate.managedContext
+        let fetchRequest: NSFetchRequest<Places> = Places.fetchRequest()
+        
+        // rendezés creationDate szerint, csökkenő sorrendben
+        
+        let sortDescriptor = NSSortDescriptor(key: #keyPath(Places.creationDate), ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        // egyszerre max 30 Note lekérdezése
+        fetchRequest.fetchBatchSize = 30
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                              managedObjectContext: managedObjectContext,
+                                                              sectionNameKeyPath: nil,
+                                                              cacheName: nil)
+        
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error as NSError {
+            print("\(error.userInfo)")
+        }
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -26,7 +76,7 @@ class ListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    func fetchNotebooks() {
+  /*  func fetchNotebooks() {
         let managedObjectContext = AppDelegate.managedContext
         
         let fetchRequest: NSFetchRequest<Places> = Places.fetchRequest()
@@ -37,7 +87,7 @@ class ListTableViewController: UITableViewController {
         } catch {
             print("Couldn't fetch!")
         }
-    }
+    }*/
 
 
     override func didReceiveMemoryWarning() {
@@ -54,22 +104,38 @@ class ListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return places.count
+
+        //return places.count
+        guard let sectionInfo = fetchedResultsController.sections?[section] else {
+            return 0
+        }
+        
+        return sectionInfo.numberOfObjects
     }
+
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
         
-        let place = self.places[indexPath.row]
-        cell.s?.text = place.name
         
-        // Configure the cell...
+            configure(cell: cell, at: indexPath)
 
         return cell
     }
     
+    func configure(cell: ListTableViewCell, at indexPath: IndexPath) {
+        let place = fetchedResultsController.object(at: indexPath)
+        cell.placeName.text = place.name
+        cell.latName.text=String(place.latitude)
+        cell.longName.text=String(place.longitude)
 
+    }
+
+    
+    
+        
+        
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -105,14 +171,44 @@ class ListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+            if segue.identifier == "AddItemSeque" {
+                let vc = segue.destination as? AddItemViewController
+                vc?.delegate = self
+            }
+        
+
     }
-    */
+    
 
 }
+extension ListTableViewController: AddItemViewControllerDelegate{
+    // Called when the user presses the Send button to issue sending the message
+    func addItemViewControllerDidSend(_ viewController: AddItemViewController){
+
+        let managedObjectContext = AppDelegate.managedContext
+        
+        let note = Places(context: managedObjectContext)
+        note.name = viewController.placeText.text
+        note.longitude = 1// viewController.longText.text
+        note.latitude = 0 //Float(viewController.latText.text)
+        note.creationDate = NSDate()
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+    
+    // Called when the user presses the Cancel button to cancel the message composer
+    func addItemViewControllerDidCancel(_ viewController: AddItemViewController){
+    
+    }
+}
+
+
+
+

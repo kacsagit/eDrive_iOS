@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let place = NSEntityDescription.insertNewObject(forEntityName: "Places", into: persistentContainer.viewContext)
         place.setValue("Hely", forKey: "name")
+        place.setValue(19, forKey: "longitude")
+        place.setValue(47, forKey: "latitude")
+        place.setValue(NSDate(), forKey: "creationDate")
         saveContext()
         
         
