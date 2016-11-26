@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		46F708421DE78B7C000819DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F708411DE78B7C000819DE /* AppDelegate.swift */; };
-		46F708441DE78B7C000819DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F708431DE78B7C000819DE /* ViewController.swift */; };
 		46F708471DE78B7C000819DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F708451DE78B7C000819DE /* Main.storyboard */; };
 		46F7084A1DE78B7C000819DE /* eDrive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 46F708481DE78B7C000819DE /* eDrive.xcdatamodeld */; };
 		46F7084C1DE78B7C000819DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F7084B1DE78B7C000819DE /* Assets.xcassets */; };
@@ -16,12 +15,14 @@
 		46F708571DE78C94000819DE /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F708561DE78C94000819DE /* ListTableViewController.swift */; };
 		46F708591DE78C9C000819DE /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F708581DE78C9C000819DE /* ListTableViewCell.swift */; };
 		46F7085B1DE9EEF0000819DE /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7085A1DE9EEF0000819DE /* AddItemViewController.swift */; };
+		46F7085D1DEA3210000819DE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7085C1DEA3210000819DE /* MapViewController.swift */; };
+		46F708601DEA35A3000819DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F7085F1DEA35A3000819DE /* MapKit.framework */; };
+		46F708621DEA4AE6000819DE /* ChargingBattery.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F708611DEA4AE6000819DE /* ChargingBattery.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		46F7083E1DE78B7C000819DE /* eDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F708411DE78B7C000819DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		46F708431DE78B7C000819DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		46F708461DE78B7C000819DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46F708491DE78B7C000819DE /* eDrive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eDrive.xcdatamodel; sourceTree = "<group>"; };
 		46F7084B1DE78B7C000819DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -30,6 +31,9 @@
 		46F708561DE78C94000819DE /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		46F708581DE78C9C000819DE /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		46F7085A1DE9EEF0000819DE /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		46F7085C1DEA3210000819DE /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		46F7085F1DEA35A3000819DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		46F708611DEA4AE6000819DE /* ChargingBattery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChargingBattery.png; path = ../../../../Downloads/ChargingBattery.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F708601DEA35A3000819DE /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +53,7 @@
 			children = (
 				46F708401DE78B7C000819DE /* eDrive */,
 				46F7083F1DE78B7C000819DE /* Products */,
+				46F7085E1DEA35A2000819DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				46F708411DE78B7C000819DE /* AppDelegate.swift */,
-				46F708431DE78B7C000819DE /* ViewController.swift */,
 				46F708451DE78B7C000819DE /* Main.storyboard */,
 				46F7084B1DE78B7C000819DE /* Assets.xcassets */,
 				46F7084D1DE78B7C000819DE /* LaunchScreen.storyboard */,
@@ -72,8 +77,18 @@
 				46F708561DE78C94000819DE /* ListTableViewController.swift */,
 				46F708481DE78B7C000819DE /* eDrive.xcdatamodeld */,
 				46F7085A1DE9EEF0000819DE /* AddItemViewController.swift */,
+				46F7085C1DEA3210000819DE /* MapViewController.swift */,
+				46F708611DEA4AE6000819DE /* ChargingBattery.png */,
 			);
 			path = eDrive;
+			sourceTree = "<group>";
+		};
+		46F7085E1DEA35A2000819DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46F7085F1DEA35A3000819DE /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F708621DEA4AE6000819DE /* ChargingBattery.png in Resources */,
 				46F7084F1DE78B7C000819DE /* LaunchScreen.storyboard in Resources */,
 				46F7084C1DE78B7C000819DE /* Assets.xcassets in Resources */,
 				46F708471DE78B7C000819DE /* Main.storyboard in Resources */,
@@ -148,8 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46F708441DE78B7C000819DE /* ViewController.swift in Sources */,
 				46F708421DE78B7C000819DE /* AppDelegate.swift in Sources */,
+				46F7085D1DEA3210000819DE /* MapViewController.swift in Sources */,
 				46F7084A1DE78B7C000819DE /* eDrive.xcdatamodeld in Sources */,
 				46F708571DE78C94000819DE /* ListTableViewController.swift in Sources */,
 				46F708591DE78C9C000819DE /* ListTableViewCell.swift in Sources */,
