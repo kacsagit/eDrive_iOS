@@ -41,11 +41,12 @@ class ListTableViewController: UITableViewController {
 
     var fetchedResultsController: NSFetchedResultsController<Places>!
     
+    let managedObjectContext = AppDelegate.managedContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
        // fetchNotebooks()
-        let managedObjectContext = AppDelegate.managedContext
         let fetchRequest: NSFetchRequest<Places> = Places.fetchRequest()
         
         // rendezés creationDate szerint, csökkenő sorrendben
@@ -144,17 +145,22 @@ class ListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+            
+            
+            let place = fetchedResultsController.object(at: indexPath)
+            self.managedObjectContext.delete(place)
+            
+           // tableView.deleteRows(at: [indexPath], with: .fade)
+        } /* else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }   */
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
