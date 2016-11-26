@@ -188,6 +188,8 @@ class ListTableViewController: UITableViewController {
     
 
 }
+
+
 extension ListTableViewController: AddItemViewControllerDelegate{
     // Called when the user presses the Send button to issue sending the message
     func addItemViewControllerDidSend(_ viewController: AddItemViewController){
@@ -196,8 +198,8 @@ extension ListTableViewController: AddItemViewControllerDelegate{
         
         let note = Places(context: managedObjectContext)
         note.name = viewController.placeText.text
-        note.longitude = 1// viewController.longText.text
-        note.latitude = 0 //Float(viewController.latText.text)
+        note.longitude = (viewController.longText.text! as NSString).floatValue
+        note.latitude = (viewController.latText.text! as NSString).floatValue
         note.creationDate = NSDate()
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

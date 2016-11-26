@@ -98,7 +98,7 @@
                     <navigationItem key="navigationItem" title="Places" id="wPE-5H-rJp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qAs-oG-l0R">
                             <connections>
-                                <segue destination="HrN-kf-GGo" kind="show" id="1Nf-1W-4f2"/>
+                                <segue destination="HrN-kf-GGo" kind="show" identifier="AddItemSeque" id="1Nf-1W-4f2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,11 +123,17 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDidEndOnExit:" destination="HrN-kf-GGo" eventType="editingDidEnd" id="dvE-cQ-9aq"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDk-aI-vjx" userLabel="LogitudeField">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="textFieldDidEndOnExit:" destination="HrN-kf-GGo" eventType="editingDidEnd" id="jq6-Bc-9Nd"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTj-Y5-Anc">
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -148,6 +154,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="textFieldDidEndOnExit:" destination="HrN-kf-GGo" eventType="editingDidEnd" id="XvE-UI-fcz"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -174,15 +183,20 @@
                     <navigationItem key="navigationItem" title="Title" id="s4I-lI-fgv">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Uge-yI-fY1">
                             <connections>
-                                <action selector="CancelTap:" destination="HrN-kf-GGo" id="oPp-Uu-5Fp"/>
+                                <action selector="CancelTap:" destination="HrN-kf-GGo" id="g0B-v8-osb"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="Y4v-HF-1GT">
                             <connections>
-                                <action selector="AddTap:" destination="HrN-kf-GGo" id="yCO-RU-o0v"/>
+                                <action selector="AddTap:" destination="HrN-kf-GGo" id="k3i-Am-HDv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="latText" destination="ABq-Op-38U" id="CIU-wS-PVW"/>
+                        <outlet property="longText" destination="cDk-aI-vjx" id="ws7-Zm-IQi"/>
+                        <outlet property="placeText" destination="Oaz-A9-rb4" id="Qfo-FF-HKH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDi-Ho-YQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
