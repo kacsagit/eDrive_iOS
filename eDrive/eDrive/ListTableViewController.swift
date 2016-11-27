@@ -33,7 +33,6 @@ extension ListTableViewController: NSFetchedResultsControllerDelegate {
             tableView.deleteRows(at: [indexPath!], with: .automatic)
             tableView.insertRows(at: [newIndexPath!], with: .automatic)
         }
-        myMapView.fetch()
     }
 }
 
@@ -43,8 +42,6 @@ class ListTableViewController: UITableViewController {
     var fetchedResultsController: NSFetchedResultsController<Places>!
     
     let managedObjectContext = AppDelegate.managedContext
-    
-    let myMapView = MapViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

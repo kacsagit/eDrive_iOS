@@ -64,9 +64,29 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     var annotation : CustomPointAnnotation?
     var list = [Places]()
     var annotations = [CustomPointAnnotation]()
+    let managedObjectContext = AppDelegate.managedContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      /*   var fetchedResultsController: NSFetchedResultsController<Places>!
+        // fetchNotebooks()
+        let fetchRequest: NSFetchRequest<Places> = Places.fetchRequest()
+        
+        // rendezés creationDate szerint, csökkenő sorrendben
+        
+        let sortDescriptor = NSSortDescriptor(key: #keyPath(Places.creationDate), ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        // egyszerre max 30 Note lekérdezése
+        fetchRequest.fetchBatchSize = 30
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                              managedObjectContext: managedObjectContext,
+                                                              sectionNameKeyPath: nil,
+                                                              cacheName: nil)
+        
+        fetchedResultsController.delegate = self */
+
         
         mapView.delegate=self
         
@@ -161,6 +181,31 @@ class MapViewController: UIViewController , MKMapViewDelegate{
      */
     
 }
+
+/* extension MapViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    }
+    
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            fetch()
+        case .delete:
+            fetch()
+        case .update:
+            fetch()
+        case .move:
+            print("move")
+            
+        }
+    }
+} */
+
 
 class CustomPointAnnotation: MKPointAnnotation {
     var imageName: String!
