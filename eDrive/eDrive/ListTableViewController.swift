@@ -33,6 +33,9 @@ extension ListTableViewController: NSFetchedResultsControllerDelegate {
             tableView.deleteRows(at: [indexPath!], with: .automatic)
             tableView.insertRows(at: [newIndexPath!], with: .automatic)
         }
+        
+        
+        NotificationCenter.default.post(name: Notification.Name("dbUpdated") , object: nil)
     }
 }
 
@@ -77,18 +80,8 @@ class ListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-  /*  func fetchNotebooks() {
-        let managedObjectContext = AppDelegate.managedContext
-        
-        let fetchRequest: NSFetchRequest<Places> = Places.fetchRequest()
-        
-        do {
-            let places = try managedObjectContext.fetch(fetchRequest)
-            self.places = places
-        } catch {
-            print("Couldn't fetch!")
-        }
-    }*/
+
+    
 
 
     override func didReceiveMemoryWarning() {

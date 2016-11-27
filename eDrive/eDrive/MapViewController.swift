@@ -105,8 +105,15 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             
         }
         
-        fetch()
+        NotificationCenter.default.addObserver(self, selector:  #selector(MapViewController.fetch), name: NSNotification.Name("dbUpdated"), object: nil)
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        fetch()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name:  NSNotification.Name("dbUpdated"), object: nil)
     }
     
     func fetch() {
@@ -128,8 +135,8 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             mapView.removeAnnotations(annotations)
             
        }
+        annotations = [CustomPointAnnotation]()
         for item in list {
-            annotations = [CustomPointAnnotation]()
             let lat = item.latitude
             let long = item.longitude
             let annot = CustomPointAnnotation()
@@ -139,7 +146,6 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             annot.title = "Your Location"
             mapView.addAnnotation(annot)
             annotations.append(annot)
-            
         }
         
         
