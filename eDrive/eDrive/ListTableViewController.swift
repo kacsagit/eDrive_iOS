@@ -33,6 +33,7 @@ extension ListTableViewController: NSFetchedResultsControllerDelegate {
             tableView.deleteRows(at: [indexPath!], with: .automatic)
             tableView.insertRows(at: [newIndexPath!], with: .automatic)
         }
+        myMapView.fetch()
     }
 }
 
@@ -42,6 +43,8 @@ class ListTableViewController: UITableViewController {
     var fetchedResultsController: NSFetchedResultsController<Places>!
     
     let managedObjectContext = AppDelegate.managedContext
+    
+    let myMapView = MapViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +116,7 @@ class ListTableViewController: UITableViewController {
         
         return sectionInfo.numberOfObjects
     }
+    
 
 
     
@@ -151,7 +155,7 @@ class ListTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             
-            
+           
             let place = fetchedResultsController.object(at: indexPath)
             self.managedObjectContext.delete(place)
             
@@ -216,6 +220,8 @@ extension ListTableViewController: AddItemViewControllerDelegate{
     
     }
 }
+
+
 
 
 

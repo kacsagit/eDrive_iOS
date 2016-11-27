@@ -8,10 +8,9 @@
 import MapKit
 import UIKit
 import CoreLocation
+import CoreData
 
 extension MapViewController : CLLocationManagerDelegate {
-    
-    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error.localizedDescription)")
@@ -26,7 +25,6 @@ extension MapViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if locations.first != nil {
-            print("location\(locations.first!.coordinate.latitude)")
             mylocation=locations.first!.coordinate
             
             if let annot = annotation{
@@ -53,7 +51,7 @@ extension MapViewController : CLLocationManagerDelegate {
     }
     
     
-
+    
     
 }
 
@@ -64,6 +62,8 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     let locationManager = CLLocationManager()
     var mylocation : CLLocationCoordinate2D?
     var annotation : CustomPointAnnotation?
+    var list = [Places]()
+    var annotations = [CustomPointAnnotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,11 +79,50 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             
         }
         
+        fetch()
+        
     }
     
-    func mapView(_ mapView: MKMapView,  viewFor annotation: MKAnnotation) -> MKAnnotationView?{
+    func fetch() {
         
-        print("delegate called")
+        let managedObjectContext = AppDelegate.managedContext
+        
+        let sortDescriptor = NSSortDescriptor(key: #keyPath(Places.creationDate), ascending: false)
+        let fetchRequest: NSFetchRequest<Places> = Places.fetchRequest()
+        // rendezés creationDate szerint, csökkenő sorrendben
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let list1 = try managedObjectContext.fetch(fetchRequest)
+            list = list1
+        } catch let error as NSError {
+            print("\(error.userInfo)")
+        }
+        if annotations.count != 0{
+            mapView.removeAnnotations(annotations)
+            
+       }
+        for item in list {
+            annotations = [CustomPointAnnotation]()
+            let lat = item.latitude
+            let long = item.longitude
+            let annot = CustomPointAnnotation()
+            annot.imageName="ChargingBattery.png"
+            let centerCoordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat),longitude: CLLocationDegrees(long))
+            annot.coordinate = centerCoordinate
+            annot.title = "Your Location"
+            mapView.addAnnotation(annot)
+            annotations.append(annot)
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
+    func mapView(_ mapView: MKMapView,  viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         
         if !(annotation is CustomPointAnnotation) {
             return nil
@@ -126,3 +165,5 @@ class MapViewController: UIViewController , MKMapViewDelegate{
 class CustomPointAnnotation: MKPointAnnotation {
     var imageName: String!
 }
+
+
