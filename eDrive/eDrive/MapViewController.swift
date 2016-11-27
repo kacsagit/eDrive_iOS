@@ -68,7 +68,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      /*   var fetchedResultsController: NSFetchedResultsController<Places>!
+     /*    var fetchedResultsController: NSFetchedResultsController<Places>!
         // fetchNotebooks()
         let fetchRequest: NSFetchRequest<Places> = Places.fetchRequest()
         
@@ -85,7 +85,13 @@ class MapViewController: UIViewController , MKMapViewDelegate{
                                                               sectionNameKeyPath: nil,
                                                               cacheName: nil)
         
-        fetchedResultsController.delegate = self */
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error as NSError {
+            print("\(error.userInfo)")
+        } */
 
         
         mapView.delegate=self
@@ -182,7 +188,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     
 }
 
-/* extension MapViewController: NSFetchedResultsControllerDelegate {
+ extension MapViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     }
     
@@ -191,7 +197,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
 
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+ /*   func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             fetch()
@@ -203,8 +209,8 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             print("move")
             
         }
-    }
-} */
+    }*/
+}
 
 
 class CustomPointAnnotation: MKPointAnnotation {

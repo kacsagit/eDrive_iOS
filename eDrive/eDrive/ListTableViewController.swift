@@ -155,6 +155,7 @@ class ListTableViewController: UITableViewController {
            
             let place = fetchedResultsController.object(at: indexPath)
             self.managedObjectContext.delete(place)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
            // tableView.deleteRows(at: [indexPath], with: .fade)
         } /* else if editingStyle == .insert {
