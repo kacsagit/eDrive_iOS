@@ -19,6 +19,7 @@
 		46F708601DEA35A3000819DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F7085F1DEA35A3000819DE /* MapKit.framework */; };
 		46F708661DEA5941000819DE /* ChargingBattery.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F708651DEA5941000819DE /* ChargingBattery.png */; };
 		46F708681DEA594E000819DE /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F708671DEA594E000819DE /* location.png */; };
+		46F7086C1DEB1698000819DE /* bookmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F7086B1DEB1698000819DE /* bookmarks.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		46F7085F1DEA35A3000819DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		46F708651DEA5941000819DE /* ChargingBattery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChargingBattery.png; sourceTree = "<group>"; };
 		46F708671DEA594E000819DE /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		46F7086B1DEB1698000819DE /* bookmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarks.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				46F7085A1DE9EEF0000819DE /* AddItemViewController.swift */,
 				46F7085C1DEA3210000819DE /* MapViewController.swift */,
 				46F708671DEA594E000819DE /* location.png */,
+				46F7086B1DEB1698000819DE /* bookmarks.png */,
 				46F708651DEA5941000819DE /* ChargingBattery.png */,
 			);
 			path = eDrive;
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46F7084F1DE78B7C000819DE /* LaunchScreen.storyboard in Resources */,
+				46F7086C1DEB1698000819DE /* bookmarks.png in Resources */,
 				46F7084C1DE78B7C000819DE /* Assets.xcassets in Resources */,
 				46F708681DEA594E000819DE /* location.png in Resources */,
 				46F708661DEA5941000819DE /* ChargingBattery.png in Resources */,

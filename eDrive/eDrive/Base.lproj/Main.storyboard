@@ -218,13 +218,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8hA-xg-ti5" firstAttribute="leading" secondItem="5dv-MQ-7bo" secondAttribute="leading" id="L6b-Nx-xe8"/>
-                            <constraint firstItem="8hA-xg-ti5" firstAttribute="bottom" secondItem="GQV-V0-6SI" secondAttribute="top" id="kDa-qw-1U9"/>
-                            <constraint firstAttribute="trailing" secondItem="8hA-xg-ti5" secondAttribute="trailing" id="ofm-8a-ZQd"/>
-                            <constraint firstItem="8hA-xg-ti5" firstAttribute="top" secondItem="5dv-MQ-7bo" secondAttribute="top" id="ym5-e2-6iY"/>
+                            <constraint firstItem="8hA-xg-ti5" firstAttribute="top" secondItem="5dv-MQ-7bo" secondAttribute="top" id="61U-Vd-caX"/>
+                            <constraint firstItem="GQV-V0-6SI" firstAttribute="top" secondItem="8hA-xg-ti5" secondAttribute="bottom" constant="8" symbolic="YES" id="CK0-yv-KSo"/>
+                            <constraint firstItem="8hA-xg-ti5" firstAttribute="leading" secondItem="5dv-MQ-7bo" secondAttribute="leading" id="bMt-ih-n9B"/>
+                            <constraint firstAttribute="trailing" secondItem="8hA-xg-ti5" secondAttribute="trailing" id="qmV-Lk-Ci5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="cJH-nZ-SPK"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="location.png" id="cJH-nZ-SPK"/>
                     <connections>
                         <outlet property="mapView" destination="8hA-xg-ti5" id="xRq-cZ-YbP"/>
                     </connections>
@@ -252,11 +252,11 @@
             </objects>
             <point key="canvasLocation" x="-181.59999999999999" y="175.86206896551727"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="qej-qz-bMC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="13Z-Op-mWA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hBI-cz-4Gt"/>
+                    <tabBarItem key="tabBarItem" title="List" image="bookmarks.png" id="hBI-cz-4Gt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5fO-77-UQJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -272,4 +272,8 @@
             <point key="canvasLocation" x="2200.8000000000002" y="60.719640179910051"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bookmarks.png" width="25" height="24"/>
+        <image name="location.png" width="18" height="28"/>
+    </resources>
 </document>

@@ -14,9 +14,39 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "controller(_:didChange:at:for:newIndexPath:)"
-            landmarkType = "7">
+            endingLineNumber = "199">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "eDrive.CustomPointAnnotation.__deallocating_deinit"
+                  moduleName = "eDrive"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kata/Documents/eDrive_iOS/eDrive/eDrive/MapViewController.swift"
+                  timestampString = "501945259.154943"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "eDrive.CustomPointAnnotation.init () -&gt; eDrive.CustomPointAnnotation"
+                  moduleName = "eDrive"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kata/Documents/eDrive_iOS/eDrive/eDrive/MapViewController.swift"
+                  timestampString = "501945259.164196"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "211"
+                  endingLineNumber = "211"
+                  offsetFromSymbolStart = "58">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
