@@ -17,7 +17,8 @@
 		46F7085B1DE9EEF0000819DE /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7085A1DE9EEF0000819DE /* AddItemViewController.swift */; };
 		46F7085D1DEA3210000819DE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7085C1DEA3210000819DE /* MapViewController.swift */; };
 		46F708601DEA35A3000819DE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F7085F1DEA35A3000819DE /* MapKit.framework */; };
-		46F708621DEA4AE6000819DE /* ChargingBattery.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F708611DEA4AE6000819DE /* ChargingBattery.png */; };
+		46F708661DEA5941000819DE /* ChargingBattery.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F708651DEA5941000819DE /* ChargingBattery.png */; };
+		46F708681DEA594E000819DE /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F708671DEA594E000819DE /* location.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		46F7085A1DE9EEF0000819DE /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		46F7085C1DEA3210000819DE /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		46F7085F1DEA35A3000819DE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		46F708611DEA4AE6000819DE /* ChargingBattery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChargingBattery.png; path = ../../../../Downloads/ChargingBattery.png; sourceTree = "<group>"; };
+		46F708651DEA5941000819DE /* ChargingBattery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChargingBattery.png; sourceTree = "<group>"; };
+		46F708671DEA594E000819DE /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,8 @@
 				46F708481DE78B7C000819DE /* eDrive.xcdatamodeld */,
 				46F7085A1DE9EEF0000819DE /* AddItemViewController.swift */,
 				46F7085C1DEA3210000819DE /* MapViewController.swift */,
-				46F708611DEA4AE6000819DE /* ChargingBattery.png */,
+				46F708671DEA594E000819DE /* location.png */,
+				46F708651DEA5941000819DE /* ChargingBattery.png */,
 			);
 			path = eDrive;
 			sourceTree = "<group>";
@@ -150,9 +153,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46F708621DEA4AE6000819DE /* ChargingBattery.png in Resources */,
 				46F7084F1DE78B7C000819DE /* LaunchScreen.storyboard in Resources */,
 				46F7084C1DE78B7C000819DE /* Assets.xcassets in Resources */,
+				46F708681DEA594E000819DE /* location.png in Resources */,
+				46F708661DEA5941000819DE /* ChargingBattery.png in Resources */,
 				46F708471DE78B7C000819DE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

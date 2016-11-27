@@ -34,7 +34,7 @@ extension MapViewController : CLLocationManagerDelegate {
                 else{
                     mapView.removeAnnotation(annotation!)
                     annotation = CustomPointAnnotation()
-                    annotation?.imageName="ChargingBattery.png"
+                    annotation?.imageName="location.png"
                     let centerCoordinate = CLLocationCoordinate2D(latitude: (locations.first?.coordinate.latitude)!, longitude:(locations.first?.coordinate.longitude)!)
                     annotation?.coordinate = centerCoordinate
                     annotation?.title = "Your Location"
@@ -43,7 +43,7 @@ extension MapViewController : CLLocationManagerDelegate {
             }
             else{
                 annotation = CustomPointAnnotation()
-                annotation?.imageName="ChargingBattery.png"
+                annotation?.imageName="location.png"
                 let centerCoordinate = CLLocationCoordinate2D(latitude: (locations.first?.coordinate.latitude)!, longitude:(locations.first?.coordinate.longitude)!)
                 annotation?.coordinate = centerCoordinate
                 annotation?.title = "Your Location"
@@ -53,7 +53,35 @@ extension MapViewController : CLLocationManagerDelegate {
     }
     
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+
+    
+}
+
+class MapViewController: UIViewController , MKMapViewDelegate{
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
+    var mylocation : CLLocationCoordinate2D?
+    var annotation : CustomPointAnnotation?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        mapView.delegate=self
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.startUpdatingLocation()
+            
+        }
+        
+    }
+    
+    func mapView(_ mapView: MKMapView,  viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         
         print("delegate called")
         
@@ -79,30 +107,6 @@ extension MapViewController : CLLocationManagerDelegate {
         anView?.image = UIImage(named:cpa.imageName)
         
         return anView
-    }
-    
-}
-
-class MapViewController: UIViewController{
-    
-    @IBOutlet weak var mapView: MKMapView!
-    
-    let locationManager = CLLocationManager()
-    var mylocation : CLLocationCoordinate2D?
-    var annotation : CustomPointAnnotation?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager.startUpdatingLocation()
-            
-        }
-        
     }
     
     
