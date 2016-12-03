@@ -68,30 +68,6 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     /*    var fetchedResultsController: NSFetchedResultsController<Places>!
-        // fetchNotebooks()
-        let fetchRequest: NSFetchRequest<Places> = Places.fetchRequest()
-        
-        // rendezés creationDate szerint, csökkenő sorrendben
-        
-        let sortDescriptor = NSSortDescriptor(key: #keyPath(Places.creationDate), ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        // egyszerre max 30 Note lekérdezése
-        fetchRequest.fetchBatchSize = 30
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                              managedObjectContext: managedObjectContext,
-                                                              sectionNameKeyPath: nil,
-                                                              cacheName: nil)
-        
-        fetchedResultsController.delegate = self
-        
-        do {
-            try fetchedResultsController.performFetch()
-        } catch let error as NSError {
-            print("\(error.userInfo)")
-        } */
 
         
         mapView.delegate=self
@@ -105,7 +81,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             
         }
         
-        NotificationCenter.default.addObserver(self, selector:  #selector(MapViewController.fetch), name: NSNotification.Name("dbUpdated"), object: nil)
+      /*  NotificationCenter.default.addObserver(self, selector:  #selector(MapViewController.fetch), name: NSNotification.Name("dbUpdated"), object: nil)*/
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -113,7 +89,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name:  NSNotification.Name("dbUpdated"), object: nil)
+      // NotificationCenter.default.removeObserver(self, name:  NSNotification.Name("dbUpdated"), object: nil)
     }
     
     func fetch() {

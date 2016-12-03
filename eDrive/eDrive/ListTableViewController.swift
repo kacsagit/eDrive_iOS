@@ -35,7 +35,7 @@ extension ListTableViewController: NSFetchedResultsControllerDelegate {
         }
         
         
-        NotificationCenter.default.post(name: Notification.Name("dbUpdated") , object: nil)
+       // NotificationCenter.default.post(name: Notification.Name("dbUpdated") , object: nil)
     }
 }
 
