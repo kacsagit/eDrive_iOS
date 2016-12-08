@@ -47,8 +47,11 @@ extension MapViewController : CLLocationManagerDelegate {
                 annotation?.title = "Your Location"
                 mapView.addAnnotation(annotation!)
             }
+            showRouteOnMap()
         }
     }
+    
+    
     
     
     
@@ -65,6 +68,8 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     var list = [Places]()
     var annotations = [CustomPointAnnotation]()
     let managedObjectContext = AppDelegate.managedContext
+    var item : Places?
+    var lastroute : MKPolyline?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +91,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     }
     override func viewWillAppear(_ animated: Bool) {
         fetch()
+        showRouteOnMap()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -156,6 +162,45 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         return anView
     }
     
+    
+    func showRouteOnMap() {
+        if let destination=item {
+            if annotation != nil {
+            let destinationCoordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(destination.latitude),longitude: CLLocationDegrees(destination.longitude))
+
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: (annotation?.coordinate)!, addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: (destinationCoordinate), addressDictionary: nil))
+        request.requestsAlternateRoutes = true
+        request.transportType = .automobile
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculate{ [weak self] response, error in
+            guard let unwrappedResponse = response else { return }
+            
+            if (unwrappedResponse.routes.count > 0) {
+                if self?.lastroute != nil {
+                    self?.mapView.remove((self?.lastroute!)!)
+                }
+                self?.mapView.add(unwrappedResponse.routes[0].polyline)
+                self?.mapView.setVisibleMapRect(unwrappedResponse.routes[0].polyline.boundingMapRect, animated: true)
+                self?.lastroute = unwrappedResponse.routes[0].polyline
+            }
+            }
+        }
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.blue
+            polylineRenderer.lineWidth = 3
+            return polylineRenderer
+        }
+        return MKPolylineRenderer()
+    }
     
     
     /*

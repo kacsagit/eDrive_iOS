@@ -128,9 +128,8 @@ class ListTableViewController: UITableViewController {
     }
 
     
+
     
-        
-        
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -174,6 +173,9 @@ class ListTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
+    
+ 
+    
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -183,6 +185,11 @@ class ListTableViewController: UITableViewController {
                 let vc = segue.destination as? AddItemViewController
                 vc?.delegate = self
             }
+        if segue.identifier == "ShowRoute" {
+            let mapViewController = segue.destination as! MapViewController
+            mapViewController.item = fetchedResultsController.object(at: tableView.indexPathForSelectedRow!)
+        }
+
         
 
     }
