@@ -35,7 +35,6 @@ extension ListTableViewController: NSFetchedResultsControllerDelegate {
         }
         
         
-       // NotificationCenter.default.post(name: Notification.Name("dbUpdated") , object: nil)
     }
 }
 
@@ -138,6 +137,12 @@ class ListTableViewController: UITableViewController {
     }
     */
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: Notification.Name("dbUpdated") , object: fetchedResultsController.object(at: indexPath))
+        tableView.deselectRow(at: indexPath, animated: true)
+        tabBarController?.selectedIndex = 1
+        
+    }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -185,10 +190,10 @@ class ListTableViewController: UITableViewController {
                 let vc = segue.destination as? AddItemViewController
                 vc?.delegate = self
             }
-        if segue.identifier == "ShowRoute" {
+     /*   if segue.identifier == "ShowRoute" {
             let mapViewController = segue.destination as! MapViewController
             mapViewController.item = fetchedResultsController.object(at: tableView.indexPathForSelectedRow!)
-        }
+        }*/
 
         
 

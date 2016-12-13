@@ -23,9 +23,13 @@ class AddItemViewController: UIViewController, UINavigationControllerDelegate {
     var delegate: AddItemViewControllerDelegate?
     @IBOutlet weak var longText: UITextField!
     
+    var latitude: String?
+    var longitude: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        latText.text = latitude
+        longText.text = longitude
         
         // Do any additional setup after loading the view.
     }

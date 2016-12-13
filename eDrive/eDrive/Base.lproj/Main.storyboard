@@ -87,7 +87,6 @@
                                     <outlet property="latName" destination="CLY-UB-i7y" id="tgS-au-Bwr"/>
                                     <outlet property="longName" destination="gDw-Up-z1u" id="szu-3g-PyK"/>
                                     <outlet property="placeName" destination="BxQ-AX-s36" id="ObI-2E-xU3"/>
-                                    <segue destination="hlQ-aa-kRh" kind="show" identifier="ShowRoute" id="ua3-8h-rN0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -201,7 +200,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDi-Ho-YQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3872.8000000000002" y="55.322338830584712"/>
+            <point key="canvasLocation" x="4334" y="242"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="qXV-xV-1WJ">
+            <objects>
+                <navigationController id="95u-bx-EYE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="mmi-mO-e2Z"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xha-3E-RM6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hlQ-aa-kRh" kind="relationship" relationship="rootViewController" id="5Z5-dl-Q4Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yFE-aM-zMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791" y="1001"/>
         </scene>
         <!--Map-->
         <scene sceneID="xDQ-1B-60K">
@@ -228,18 +244,26 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="location.png" id="cJH-nZ-SPK"/>
+                    <navigationItem key="navigationItem" title="Map" id="fSe-Hu-84p">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="N57-eb-kRD" userLabel="Clear">
+                            <connections>
+                                <action selector="Clear:" destination="hlQ-aa-kRh" id="gFI-Wu-1Ak"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="8hA-xg-ti5" id="xRq-cZ-YbP"/>
+                        <segue destination="HrN-kf-GGo" kind="show" identifier="NamePlace" id="6qC-lM-YCP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrA-d8-5Ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181.25" y="947.82608695652186"/>
+            <point key="canvasLocation" x="3028" y="958"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9H5-Ga-1CY">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kwq-k8-eP5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="kwq-k8-eP5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="z6j-CV-Poa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -248,7 +272,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="13Z-Op-mWA" kind="relationship" relationship="viewControllers" id="9k0-s5-i8j"/>
-                        <segue destination="hlQ-aa-kRh" kind="relationship" relationship="viewControllers" id="VGa-cc-Aaa"/>
+                        <segue destination="95u-bx-EYE" kind="relationship" relationship="viewControllers" id="2XG-zr-MRl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHD-MC-ad8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -280,6 +304,6 @@
         <image name="location.png" width="18" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ua3-8h-rN0"/>
+        <segue reference="6qC-lM-YCP"/>
     </inferredMetricsTieBreakers>
 </document>

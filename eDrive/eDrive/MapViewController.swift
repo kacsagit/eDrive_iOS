@@ -17,15 +17,39 @@ extension MapViewController : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        
         if status == .authorizedWhenInUse {
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if locations.first != nil {
-            mylocation=locations.first!.coordinate
+        guard let newLocation = locations.last else {
+            return
+        }
+        
+        
+        if -newLocation.timestamp.timeIntervalSinceNow > 5.0 {
+            return
+        }
+        
+        if newLocation.horizontalAccuracy < 0 {
+            return
+        }
+        
+        if lastLocation?.coordinate.latitude == newLocation.coordinate.latitude && lastLocation?.coordinate.longitude == newLocation.coordinate.longitude{
+            return
+        }
+        
+       // if lastLocation == nil || lastLocation!.horizontalAccuracy < newLocation.horizontalAccuracy {
+        
+        
+        if locations.last != nil {
+            mylocation=newLocation.coordinate
+            lastLocation = newLocation
             
             if let annot = annotation{
                 if annot.coordinate.latitude == mylocation!.latitude && annot.coordinate.latitude == mylocation!.longitude  {}
@@ -63,6 +87,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    var lastLocation: CLLocation?
     var mylocation : CLLocationCoordinate2D?
     var annotation : CustomPointAnnotation?
     var list = [Places]()
@@ -70,6 +95,14 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     let managedObjectContext = AppDelegate.managedContext
     var item : Places?
     var lastroute : MKPolyline?
+    var newCoordinates: CLLocationCoordinate2D?
+    
+    @IBAction func Clear(_ sender: AnyObject) {
+        if lastroute != nil {
+            item = nil
+            mapView.remove((lastroute)!)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,10 +118,55 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             locationManager.startUpdatingLocation()
             
         }
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(MapViewController.longpress(gestureRecognizer:)))
         
-      /*  NotificationCenter.default.addObserver(self, selector:  #selector(MapViewController.fetch), name: NSNotification.Name("dbUpdated"), object: nil)*/
+        lpgr.minimumPressDuration = 0.5
+        
+        mapView.addGestureRecognizer(lpgr)
+        
+        NotificationCenter.default.addObserver(self, selector:  #selector(MapViewController.notif(_:)), name: NSNotification.Name("dbUpdated"), object: nil)
         
     }
+    func notif(_ notification: NSNotification) {
+        item = notification.object as! Places?
+    
+    }
+    
+    
+    func longpress(gestureRecognizer: UIGestureRecognizer) {
+        guard gestureRecognizer.state == .began else { return }
+        print("long")
+        
+        
+        let point = gestureRecognizer.location(in: self.view)
+        newCoordinates = mapView.convert(point, toCoordinateFrom: mapView)
+        
+        
+        self.performSegue(withIdentifier: "NamePlace", sender: self)
+        
+       /* let annot = CustomPointAnnotation()
+        annot.imageName="ChargingBattery.png"
+        annot.coordinate = newCoordinates!
+        annot.title = "uj"
+        mapView.addAnnotation(annot)*/
+
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NamePlace" {
+            
+            let lat = newCoordinates!.latitude
+            let long = newCoordinates!.longitude
+            
+            let viewController = segue.destination as! AddItemViewController
+            viewController.delegate = self
+            viewController.latitude = String(lat)
+            viewController.longitude = String(long)
+            
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         fetch()
         showRouteOnMap()
@@ -125,7 +203,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             annot.imageName="ChargingBattery.png"
             let centerCoordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat),longitude: CLLocationDegrees(long))
             annot.coordinate = centerCoordinate
-            annot.title = "Your Location"
+            annot.title = item.name
             mapView.addAnnotation(annot)
             annotations.append(annot)
         }
@@ -242,6 +320,27 @@ class MapViewController: UIViewController , MKMapViewDelegate{
 
 class CustomPointAnnotation: MKPointAnnotation {
     var imageName: String!
+}
+
+extension MapViewController: AddItemViewControllerDelegate{
+    // Called when the user presses the Send button to issue sending the message
+    func addItemViewControllerDidSend(_ viewController: AddItemViewController){
+        
+        let managedObjectContext = AppDelegate.managedContext
+        
+        let note = Places(context: managedObjectContext)
+        note.name = viewController.placeText.text
+        note.longitude = (viewController.longText.text! as NSString).floatValue
+        note.latitude = (viewController.latText.text! as NSString).floatValue
+        note.creationDate = NSDate()
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+    
+    // Called when the user presses the Cancel button to cancel the message composer
+    func addItemViewControllerDidCancel(_ viewController: AddItemViewController){
+        
+    }
 }
 
 
